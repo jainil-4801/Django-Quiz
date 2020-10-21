@@ -28,5 +28,3 @@ Run the development server
     ```python manage.py runserver```
     
 Visit http://localhost:8000/admin. Login with superuser credentials. You can add the Quiz using Admin Panel of Django.
-
-
