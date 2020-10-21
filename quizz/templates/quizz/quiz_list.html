@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Quiz List</title>
+  </head>
+  <body>
+  <center><h1> Quizzes List</h1></center>
+  {% comment %} "id", "name", "description", "questions_count","duration","time_start","time_end {% endcomment %}
+    <div class="jumbotron">
+        {% if user.is_authenticated %}
+        <center><h4> Ongoing Quizzes </h4></center><br />
+        <div id="accordion">
+            {% for q in ongoing %}
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Name :- {{q.name}} </button>
+                        </h5>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            Description :- {{q.description}} <br />
+                            Total Questions :- {{q.questions_count}} <br />
+                            Duration :- {{q.duration}} <br />
+                            Starting Time of Quiz :- {{q.time_start}} <br />
+                            Ending Time of Quiz :- {{q.time_end}} <br />
+                            <br />
+                            <a href="{{q.id}}"><button type="button" class="btn btn-success mt-10">Register</button></a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <br />
+        <center><h4> UpComing Quizzes </h4></center><br />
+        <div id="accordion">
+            {% for q in upcoming %}
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                                Name :- {{q.name}} </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            Description :- {{q.description}} <br />
+                            Total Questions :- {{q.questions_count}} <br />
+                            Duration :- {{q.duration}} <br />
+                            Starting Time of Quiz :- {{q.time_start}} <br />
+                            Ending Time of Quiz :- {{q.time_end}} <br />
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <br />
+        <center><h4> Past Quizzes </h4></center><br />
+        <div id="accordion">
+            {% for q in past %}
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                                Name :- {{q.name}} </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            Description :- {{q.description}} <br />
+                            Total Questions :- {{q.questions_count}} <br />
+                            Duration :- {{q.duration}} <br />
+                            Starting Time of Quiz :- {{q.time_start}} <br />
+                            Ending Time of Quiz :- {{q.time_end}} <br />
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    </div>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
